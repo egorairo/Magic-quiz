@@ -1,0 +1,148 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100" data-id="app" data-state="start">
+    <div class="flex items-center justify-center h-screen w-screen">
+      <div
+        class="flex flex-col items-center justify-center bg-white shadow overflow-hidden rounded-lg text-center p-8 max-w-lg"
+      >
+        <div class="mb-4">
+          <h2 class="text-2xl font-medium text-gray-900">
+            Question <span data-id="questionNumber">1</span> of 5
+          </h2>
+          <p data-id="question" class="mt-1 text-xl text-gray-700"></p>
+        </div>
+        <div data-id="answers" class="grid gap-4 grid-cols-2 grid-rows-2 w-96">
+          <button
+            class="flex items-center justify-center rounded-lg border-2 py-4 px-12 text-xl"
+          ></button>
+          <button
+            class="flex items-center justify-center rounded-lg border-2 py-4 px-12 text-xl"
+          ></button>
+          <button
+            class="flex items-center justify-center rounded-lg border-2 py-4 px-12 text-xl"
+          ></button>
+          <button
+            class="flex items-center justify-center rounded-lg border-2 py-4 px-12 text-xl"
+          ></button>
+        </div>
+        <button
+          data-id="nextQuestionBtn"
+          disabled
+          class="mt-4 w-full inline-flex justify-center items-center rounded-md border border-transparent shadow-sm px-8 py-5 bg-blue-500 text-xl font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+        >
+          Next Question
+        </button>
+      </div>
+    </div>
+    <!-- START MODAL -->
+    <div
+      data-id="startModal"
+      class="flex items-center justify-center fixed z-10 inset-0 overflow-y-auto bg-black"
+    >
+      <div
+        class="inline-block w-1/4 align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-headline"
+      >
+        <div class="bg-white px-4 pt-5 pb-4">
+          <div class="mt-3 text-center">
+            <h3
+              class="text-2xl leading-6 font-medium text-gray-900"
+              id="modal-headline"
+            >
+              Magic Github Quiz
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">
+                Are you ready to start the Quiz?
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3">
+          <button
+            data-id="startQuizBtn"
+            class="w-full inline-flex justify-center items-center rounded-md border border-transparent shadow-sm px-8 py-5 bg-blue-500 text-xl font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+          >
+            <span data-id="startQuizSpinner">
+              <svg
+                class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </span>
+            <span>Start Quiz!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESTART MODAL -->
+    <div
+      data-id="restartModal"
+      class="flex items-center justify-center fixed z-10 inset-0 overflow-y-auto bg-black"
+    >
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-headline"
+      >
+        <div class="bg-white px-4 pt-5 pb-4">
+          <div class="mt-3 text-center">
+            <h3
+              class="text-2xl leading-6 font-medium text-gray-900"
+              id="modal-headline"
+            >
+              Congratulations!
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">
+                You have completed the quiz. You got:
+                <span data-id="rightAnswersCount" class="text-green-300"
+                  >1</span
+                >
+                out of 5 questions right.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-3">
+          <button
+            data-id="restartQuizBtn"
+            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-8 py-5 bg-blue-500 text-xl font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+          >
+            Restart Quiz
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

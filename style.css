@@ -1,0 +1,50 @@
+.disabled {
+  background: #ccc;
+  cursor: default;
+}
+
+.disabled:hover {
+  background: #ccc;
+}
+
+.rightAnswer,
+.rightAnswer:hover {
+  color: #fff;
+  background-color: rgba(110, 231, 183);
+  border-color: rgba(110, 231, 183);
+}
+
+.wrongAnswer,
+.wrongAnswer:hover {
+  color: #fff;
+  background-color: rgb(252, 165, 165);
+  border-color: rgb(252, 165, 165);
+}
+
+[data-id='startModal'] {
+  visibility: hidden;
+}
+
+[data-id='startQuizSpinner'] {
+  display: none;
+}
+
+[data-id='restartModal'] {
+  visibility: hidden;
+}
+
+[data-id='app'][data-state='start'] [data-id='startModal'] {
+  visibility: visible;
+}
+
+[data-id='app'][data-state='loadingQuiz'] [data-id='startQuizSpinner'] {
+  display: block;
+}
+
+[data-id='app'][data-state='loadingQuiz'] [data-id='startModal'] {
+  visibility: visible;
+}
+
+[data-id='app'][data-state='finish'] [data-id='restartModal'] {
+  visibility: visible;
+}
